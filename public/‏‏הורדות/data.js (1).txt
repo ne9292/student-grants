@@ -1,0 +1,141 @@
+data.js
+export const products = [
+    { id: 1, description: 'כינור', price: 1000, amount: 7 },
+    { id: 2, description: 'נבל', price: 13000, amount: 1 },
+    { id: 3, description: 'פסנתר', price: 32000, amount: 2 },
+    { id: 4, description: 'דרבוקה', price: 120, amount: 50 },
+    { id: 5, description: 'מלודיקה', price: 150, amount: 23 },
+    { id: 6, description: 'גיטרה', price: 400, amount: 36 },
+    { id: 6, description: 'חליל צד', price: 5000, amount: 12 }
+]
+
+*************************
+דף אחר:app.js 
+
+import express from 'express'
+
+import { products } from './data.js'
+
+const app = express()
+
+// node app.js פקודת הרצה
+// לא מתעדכנת עם כל שינוי
+// nodemon ניתן להתקין את ספרית 
+// npm i nodemon
+// package.json  נוסיף סקריפט הרצה בקובץ 
+// "scripts": {
+//      "start": "nodemon app.js",
+// }
+
+// יצירת קריאות שרת
+
+// syntax:
+// server.method(path, (request, response) => {
+// })
+
+// server - שרת
+// method - שיטת גישה
+// crud - create read update delete
+// methods:
+// get - שליפה - read
+// post - הוספה - create
+// patch / put - עדכון - update
+// delete - מחיקה
+
+// path - ניתוב לקריאת השרת
+// מזהה הפונקציה - כתובת
+// חייב להיות יחודי 
+
+// callback פונקציית 
+// מקבלת שני פרמטרים:
+// 1. request - אובייקט הבקשה
+// 2. response - אובייקט התגובה
+
+
+app.get('/hello', (req, res) => {
+    res.send('HELLO!!!😍👍👌😘🙌')
+})
+
+// ניתוב ברירת מחדל - path ריק
+app.get('', (req, res) => {
+    res.send(products)
+})
+app.get('/products', (req, res) => {
+    res.send(products)
+})
+
+// params - פרמטרים בניתוב
+// הפרמטרים הם חלק מהניתוב
+// 1. אם לא נשלח פרמטר - הניתוב לא ימצא
+// 2. מסייע בהעמסה
+// אין הגדרה של טיפוס JS יש לשים לב שב
+// יש לשים לב שהעמסה תקינה היא רק לפי מס פרמטרים
+
+// במדויק url הניתוב צריך להופיע בשורת ה
+// הפרמטרים יקבלו ערך כלשהו ויכנסו לתוך אובייקט הפרמטרים תחת מפתח זהה לשם הפרמטר בהגדרתו
+
+
+// הכתובת של קריאת השרת:
+// 1. שיטת גישה
+// 2. ניתוב
+// 3. params - פרמטרים בניתוב
+
+// שליפה לפי תיאור
+app.get('/product/description/:description', (req, res) => {
+    // req.params כל הפרמטרים נאספים לתוך אובייקט 
+    console.log(req.params);
+
+    const { description } = req.params
+    // const desc = req.params.description
+
+    // === השוואה של סוג וערך
+    // == השוואה של ערך בלבד
+    // מתקבלת תמיד מחרוזת url משורת ה 
+    // false אם נשווה קוד באצעות 3 סימני השוואה - ההשואה תחזיר 
+    let p = products.find(x => x.description === description)
+    if (!p) {
+        return res.send(`product ${description} is not found!`)
+    }
+    return res.send(p)
+})
+
+// שליפה לפי קוד
+app.get('/product/id/:id', (req, res) => {
+    let product = products.find(p => p.id == req.params.id)
+    if (!product) {
+        return res.send(`product ${id} is not found!`)
+    }
+    return res.send(product)
+})
+
+// בלבד get מדפדפן אפשר לבצע קריאות שרת של 
+// thunder client לכן נתקין את התוסף 
+// שמדמה צד לקוח בסיס לבדיקת הקריאות
+
+// הוספה
+app.post('/add', (req, res) => {
+    res.send('add')
+})
+
+// עדכון
+// עדכון חלקי
+// עדכון מאפיינים ספציפיים
+app.patch('/update', (req, res) => {
+    res.send('update')
+})
+
+// עדכון מלא
+// החלפת המופע כולו
+app.put('/update', (req, res) => {
+    res.send('full update')
+})
+
+// מחיקה
+app.delete('/remove', (req, res) => {
+    res.send('delete')
+})
+
+const port = 3001
+app.listen(port, () => {
+    console.log(`my app is running on http://localhost:${port}`);
+})

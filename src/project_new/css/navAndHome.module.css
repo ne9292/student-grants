@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+/* --- ל-NAV (גרסה שחורה עמוקה) ----------------------------------------*/
+body {
+    padding-top: 70px; /* דוחף את התוכן למטה */
+}
+.navBar {
+    position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+    /* רקע כמעט שחור מוחלט */
+    background-color: #0A0A0A; 
+    
+    /* צל שחור עמוק שגורם לסרגל לבלוט */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6); 
+    padding: 15px 5%; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    /* גבול תחתון לבן מודגש להפרדה חדה */
+    border-bottom: 3px solid white; 
+}
+
+.logo {
+    font-size: 1.6em; /* הגדלנו מעט */
+    font-weight: 900; 
+    color: white; 
+    text-transform: uppercase;
+    letter-spacing: 2px; /* ריווח מוגבר לאפקט דרמטי יותר */
+}
+
+.links {
+    margin-right: 40px;
+    display: flex;
+    gap: 30px; /* רווח גדול יותר בין קישורים */
+    align-items: center;
+}
+
+.link, .activeLink {
+    text-decoration: none; 
+    font-size: 1em;
+    padding: 8px 0;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+/* --- סטייל לקישורים לא פעילים (רגילים) --- */
+.link {
+    color: #DDDDDD; /* לבן-אפרפר, ניגודיות גבוהה אך לא מלאה */
+    font-weight: 500;
+}
+
+.link:hover {
+    color: white; /* לבן מוחלט בריחוף */
+    transform: translateY(-1px); /* אפקט קפיצה עדין */
+}
+
+/* --- סטייל לקישור הפעיל (Active Link) - מודגש ודרמטי --- */
+.activeLink {
+    color: white; 
+    font-weight: 800; /* סופר מודגש */
+}
+
+/* קו תחתון דרמטי לקישור הפעיל */
+.activeLink::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; 
+    left: 0;
+    width: 100%;
+    height: 4px; /* קו עבה יותר */
+    background-color: white; 
+    transform: scaleX(1); 
+}
+
+/* אפקט ריחוף על קישור לא פעיל */
+.link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: white; 
+    transform: scaleX(0); 
+    transition: transform 0.3s ease;
+}
+
+.link:hover::after {
+    transform: scaleX(0.7); /* קו ארוך יותר ודרמטי בריחוף */
+}
+
+/* --- עיצוב כפתור היציאה (Logout Button) --- */
+
+.logoutButton {
+    /* הגדרות בסיס: דואגות להיראות כמו טקסט בתוך סרגל ניווט */
+    font-family: inherit;
+    font-size: 1em; /* גודל פונט תואם לקישורים */
+    font-weight: 600;
+    
+    /* עיצוב הכפתור */
+    background: transparent; 
+    border: 2px solid #333333; 
+    border-radius: 5px;
+    cursor: pointer;
+    color: #333333; /* צבע טקסט */
+    padding: 5px 12px;
+    transition: all 0.2s ease;
+    margin-right: 10px; 
+    
+    /* מניעת קו תחתון לחלוטין */
+    text-decoration: none; 
+    
+    /* לטפל במקרים שבהם דפדפנים מוסיפים עיצוב ברירת מחדל */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* אפקט ריחוף (Hover) */
+.logoutButton:hover {
+    background: #333333; 
+    color: white; 
+    border-color: #333333;
+    
+    /* ודא שאין קו תחתון בריחוף */
+    text-decoration: none; 
+}
+
+/* ל-home----------------------------------------*/
+
+/* --- גלובליות ורקעים --- */
+.homeContainer {
+    /* רקע כללי בהיר מאוד, או לבן נקי */
+    background-color: #F8F8F8;
+    color: #1A1A1A; /* צבע טקסט ראשי כמעט שחור */
+    font-family: 'Arial', sans-serif; /* או פונט סאנס-סריף נקי וחזק */
+}
+
+/* --- ☁️ Hero Section - הפתיח הדרמטי --- */
+.heroSection {
+    /* נותן אשליה של תמונה דרמטית אם אין תמונה בפועל */
+    background-color: #1A1A1A; 
+    color: white; 
+    padding: 80px 5%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    /* הוספת גבול עבה ומודגש למטה להפרדה */
+    border-bottom: 5px solid #E0E0E0; 
+}
+
+.heroTitle {
+    font-family: 'Heebo', sans-serif; 
+    font-size: 3em; 
+    font-weight: 900; /* סגנון מודגש מאוד */
+    margin-bottom: 10px;
+    line-height: 1.1;
+    width: 100%;
+    white-space: nowrap; 
+}
+
+    
+
+
+.heroTagline {
+    font-size: 1.2em;
+    font-weight: 300; /* סגנון דק יותר לניגוד */
+    opacity: 0.8;
+}
+
+.ctaButton {
+    /* כפתור קונטרסט מוחלט - לבן על שחור */
+    background-color: white; 
+    color: #1A1A1A; 
+    border: 3px solid white; /* גבול לבן עבה יותר */
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* הפיכת הטקסט לאותיות גדולות (אם הפונט תומך) */
+    margin-top: 25px;
+}
+
+.ctaButton:hover {
+    /* אפקט ריחוף דרמטי */
+    background-color: #1A1A1A; 
+    color: white;
+    border-color: white;
+}
+
+.subtext {
+    opacity: 0.6;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+/* --- 🗂️ Content Grid - יתרונות המערכת --- */
+.mainContentTitle {
+    font-size: 2rem; /* גודל טקסט קטן יותר */
+    font-weight: 600; /* דגשת הטקסט בצורה עדינה */
+    text-align: center; /* יישור למרכז */
+    margin: 40px 0; /* רווחים מותאמים עליון ותחתון */
+    color: #333333; /* צבע טקסט כהה */
+    text-transform: uppercase; /* אותיות גדולות */
+    letter-spacing: 1px; /* ריווח קל בין האותיות */
+    font-family: 'Roboto', sans-serif; /* פונט מודרני ונקי */
+    line-height: 1.3; /* ריווח שורה נעים */
+    display: block; /* לוודא שהטקסט יהיה ממורכז */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* צל אפור-שחור על האותיות */
+}
+
+.mainContentTitle:hover {
+    /* ללא שינוי צבע או אפקטים בעת ריחוף */
+    transform: none; /* לא נבצע שום שינוי בזמן ריחוף */
+}
+
+
+.contentGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 0 5%;
+    justify-items: center;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px; /* פינות מעוגלות */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* הצללה עדינה יותר */
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 320px;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* אפקט עליית כרטיס */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* הצללה חזקה יותר בהזזה */
+}
+
+.iconHeader svg {
+    width: 24px; /* הגודל יהיה 24px */
+    height: 24px; /* הגודל יהיה 24px */
+}
+
+.icon {
+    font-size: 2rem; /* לדוגמה, הקטנת האייקונים ל-2rem */
+}
+
+.cardTitle {
+    
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 15px;
+    text-transform: uppercase; /* כלול את הכותרות בפונט קפיטליזציה */
+}
+
+.description {
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #555555;
+    opacity: 0.9;
+}
+
+/* --- 💬 Testimonials Section - עדויות --- */
+.testimonialsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 5%;
+    margin-bottom: 80px;
+}
+
+.testimonialCard {
+    background-color: #E0E0E0; /* רקע אפור בהיר לאזור זה */
+    border-left: 5px solid #1A1A1A; /* קו שחור עבה ודרמטי בצד */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* מרכז את התוכן */
+    justify-content: center;
+    text-align: center; /* מרכז את הטקסט */
+    /*font-family: Guttman Yad-Light; font-size: 1.3rem;
+  font-family: 'Caveat', cursive; /*font-size: 1.3rem; /* גודל טקסט מותאם */
+    color: #333333; /* צבע טקסט כהה */
+    line-height: 1.5; /* ריווח טוב בין השורות */
+    border-radius: 8px; /* פינות מעוגלות */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* צל עדין */
+    font-size: 1rem;
+}
+
+.testimonialText {
+    font-style: normal; /* משנים את הפונט שיהיה רגיל ולא נטוי */
+    margin-bottom: 15px; /* רווח למטה */
+    font-weight: 500; /* הדגשה קלילה */
+}
+
+
+
+
+
+.quoteIcon {
+    font-size: 3em;
+    color: #1A1A1A;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+
+
+.testimonialAuthor {
+    font-weight: 300;
+    align-self: flex-end; /* יישור לשמאל */
+}
+
+/* --- 📚 אודות קצר --- */
+.aboutSection {
+    background-color: #1A1A1A;
+    color: white;
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.aboutTitle {
+    font-size: 1.8em;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.aboutText {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+    opacity: 0.85;
+}
+
+.heroSection {
+    background-image: url('./d79bd799d7aad7aa-d79cd799d79ed795d793.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative; 
+    
+    /* פילטר: הפיכת התמונה לשחור-לבן (דרמה!) */
+    filter: grayscale(100%); 
+    
+    color: white; 
+    padding: 100px 5%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    border-bottom: 5px solid #E0E0E0; 
+}
+
+/* שכבת הצללה (Overlay) - חובה לקונטרסט מעולה */
+.heroSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* הכהיה חזקה כדי להבליט את הטקסט הלבן */
+    background-color: rgba(0, 0, 0, 0.7); /* שחור עם 70% שקיפות */
+    z-index: 1; 
+}
+
+.heroTitleContainer {
+    position: relative;
+    z-index: 2; /* מוודא שהתוכן מופיע מעל ה־Overlay */
+    max-width: 600px;
+}

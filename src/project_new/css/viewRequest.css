@@ -1,0 +1,128 @@
+/* --- עיצוב דף ViewRequest (רשימת בקשות) --- */
+
+/* הגדרות מיוחדות לקונטיינר הרשימה */
+.view-request-container {
+    padding-top: 20px; /* צמצום מעט את הריפוד העליון בדף הרשימה */
+}
+
+.view-request-container h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.requests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* כרטיס בקשה בודד */
+.request-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 12px;
+    background: var(--color-background); /* רקע לבן לכרטיס */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* צל קל */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.request-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.details-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detail-item {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.detail-item strong {
+    font-weight: 700;
+}
+
+/* כפתור צפייה */
+.btn-view {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+}
+
+
+
+/* --- עיצוב דף Show (פרטי בקשה מלאים) --- */
+
+.show-request-container h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-border);
+    text-align: center;
+}
+
+/* כרטיס מקבץ פרטים (Personal, Bank, etc.) */
+.detail-section {
+    background: var(--color-background);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.detail-section h2 {
+    font-size: 1.4rem;
+    color: var(--color-accent-hover);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed var(--color-border);
+}
+
+/* פריסת פרטים בשתי עמודות */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* שתי עמודות בגודל שווה */
+    gap: 10px 20px;
+}
+
+.detail-grid p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.detail-grid strong {
+    font-weight: 700;
+}
+
+/* כפתורי אישור וסירוב בתחתית */
+.approval-buttons {
+    margin-top: 10px;
+    justify-content: space-between; /* דוחף את הכפתורים לקצוות */
+}
+
+.btn-reject {
+    /* הופך את כפתור הסירוב לאדום/כתום עדין */
+    background-color: transparent;
+    color: #CC3333; /* אדום */
+    font-weight: 700;
+    border: 2px solid #CC3333;
+    padding: 10px 20px;
+}
+
+.btn-reject:hover {
+    background-color: #CC3333;
+    color: var(--color-background);
+    transform: translateY(-2px);
+}

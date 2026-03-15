@@ -1,0 +1,129 @@
+/* --- FORM CONTAINER --- */
+body {
+    padding-top: 70px; /* דוחף את התוכן למטה */
+}
+.formContainer {
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px); /* חיסור גובה ה-nav */
+    background-color: #FAFAFA; /* רקע בהיר */
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* --- FORM CARD --- */
+.formCard {
+    background-color: #FFFFFF; /* לבן */
+    color: #1A1A1A; /* טקסט כהה כמו בדף הבית */
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* הצללה עדינה */
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* --- TITLE --- */
+.title {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #0A0A0A; /* שחור דרמטי */
+}
+
+/* --- FORM --- */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- LABELS --- */
+.label {
+    /* שינוי: יישור הטקסט לימין (כותרת הלייבל) */
+    text-align: right; 
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333333;
+    font-size: 0.95em;
+}
+
+/* --- INPUTS --- */
+.input {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #CCCCCC; /* אפור בהיר */
+    font-size: 1em;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #FDFDFD; /* בהיר מאוד */
+    color: #1A1A1A;
+    /* שינוי: יישור הטקסט בתוך שדה הקלט לימין */
+    text-align: right;
+}
+
+.input:focus {
+    border-color: #0A0A0A; /* צבע שחור דומיננטי בדף הבית */
+    background-color: #FFFFFF;
+    box-shadow: 0 0 5px rgba(10, 10, 10, 0.2);
+}
+
+/* --- SUBMIT BUTTON --- */
+.submitButton {
+    background-color: #0A0A0A; /* שחור כמו ה-nav */
+    color: #FFFFFF; /* לבן להדגשה */
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #333333; /* אפור כהה בהיר יותר בריחוף */
+}
+
+/* --- SECONDARY BUTTON מינימליסטי --- */
+.secondaryButton {
+    margin-top: 15px;
+    background-color: transparent; /* בלי רקע */
+    color: #0A0A0A; /* צבע הטקסט */
+    font-weight: 600;
+    border: none; /* בלי מסגרת */
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease; /* הנפשה עדינה */
+}
+
+.secondaryButton:hover {
+    transform: translateY(-3px); /* הזזה קלה למעלה */
+    color: #555555; /* אפשר שינוי צבע קל, אופציונלי */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+    .formCard {
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 1.6em;
+    }
+
+    .input,
+    .submitButton,
+    .secondaryButton {
+        font-size: 0.95em;
+        padding: 10px 0;
+    }
+}
