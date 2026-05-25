@@ -1,0 +1,260 @@
+/* 🌑 Glassmorphism Lite - לבן/שחור מודרני */
+
+/* לטופס שלך: form.css או קובץ CSS רלוונטי */
+.input-error {
+    /* צבע אדום חזק לגבול השדה */
+    border: 1px solid red !important; 
+}
+.error {
+    /* טקסט השגיאה מתחת לשדה */
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px; /* רווח מעל הודעת השגיאה */
+    display: block;
+    text-align: right; /* יישור לימין */
+}
+
+:root {
+    --color-background: #FFFFFF; /* רקע לבן */
+    --color-accent: #333333; /* שחור כהה */
+    --color-accent-hover: #555555; /* אפור כהה יותר */
+    --color-text: #222222; /* טקסט כהה */
+    --color-border: #CCCCCC; /* גבול אפור בהיר */
+    --color-glass-bg: rgba(245, 245, 245, 0.9); /* שקוף למחצה */
+    --color-disabled: #B0B0B0;
+}
+
+body {
+    padding-top: 70px; /* דוחף את התוכן למטה */
+    font-family: Arial, sans-serif;
+}
+
+/* קונטיינר עיקרי */
+.contenerForm {
+    max-width: 780px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    border-radius: 18px;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    direction: rtl;
+}
+.form-header {
+    font-size: 1.6rem; /* קצת קטן יותר מכותרת דף שלם */
+    font-weight: 700;
+    color: var(--color-accent);
+    text-align: center;
+    margin-bottom: 20px; /* רווח מתחת לכותרת */
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-border); /* קו הפרדה עדין */
+}
+
+/* כפתורי שלבים */
+.selectForm {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 10px;
+    margin-bottom: 30px;
+}
+
+.selectForm::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    right: 15px;
+    height: 2px;
+    background: var(--color-border);
+    z-index: 0;
+}
+
+.select {
+    background: var(--color-background);
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-text);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.select:hover {
+    border-color: var(--color-accent);
+}
+
+.select.active {
+    background: var(--color-accent);
+    color: var(--color-background);
+    border-color: var(--color-accent);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* תוכן השלב */
+.currentChild {
+    padding: 20px 0;
+}
+
+/* כפתורי ניווט */
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-accent);
+    font-weight: 600;
+    border: none;
+    padding: 12px 0;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    color: var(--color-accent-hover);
+}
+
+/* טפסים פנימיים */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+input, select {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    font-size: 1rem;
+    outline: none;
+    background: var(--color-background);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 5px var(--color-accent);
+}
+
+/* כפתור Submit */
+.btn-submit {
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-submit:disabled {
+    background-color: var(--color-disabled);
+    color: #E0E0E0;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- צ'קבוקס ותיקונים --- */
+
+/* קונטיינר הצ’קבוקס */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* רווח בין הריבוע לטקסט */
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* צ’קבוקס קטן (הבלוק המאוחד והמתוקן) */
+.checkbox-container input[type="checkbox"] {
+    /* *** ביטול דריסת הגדרות הטופס הכלליות *** */
+    padding: 0; 
+    font-size: 0; 
+    
+    /* גודל הריבוע הפיזי */
+    width: 14px; 
+    height: 14px;
+    
+    /* הגדרות עיצוב */
+    border: 2px solid var(--color-text);
+    border-radius: 4px; 
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    background-color: var(--color-background);
+}
+
+/* V מותאם ומרכזי (הגדלת ה-V) */
+.checkbox-container input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px; /* הוגדל ל-10px כדי שיהיה ברור */
+    color: var(--color-background);
+    pointer-events: none;
+    font-weight: 900; 
+}
+
+/* צבע למצב מסומן */
+.checkbox-container input[type="checkbox"]:checked {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* טקסט ליד הצ’קבוקס קטן יותר */
+.checkbox-container label {
+    font-size: 0.8rem;
+    color: var(--color-text);
+    cursor: pointer;
+}

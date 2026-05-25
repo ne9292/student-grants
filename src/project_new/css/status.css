@@ -1,0 +1,86 @@
+/* status.css - גרסה מודרנית ואלגנטית */
+.statusWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f5f5f5; /* רקע בהיר מאוד */
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
+}
+
+.statusCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 400px;
+  max-width: 95%;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statusCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.statusIcon {
+  margin-bottom: 20px;
+}
+
+.statusTitle {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.statusDesc {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.statusBtnRow {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.statusBtn {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  background: #111;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.statusBtn:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+
+.statusBtnOutline {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  background: transparent;
+  color: #111;
+  border: 2px solid #111;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.statusBtnOutline:hover {
+  background: #111;
+  color: #fff;
+  transform: translateY(-2px);
+}
